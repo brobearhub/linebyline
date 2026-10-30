@@ -9,25 +9,53 @@ export function BlackFridayLanding() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-         <p className={styles.headerDeadline}>ТОЛЬКО 11.11</p>
-        <p className={styles.wordmark}>LINEBYLINE.RU</p>
-       
+        <p className={styles.wordmark}>
+          LINE<span className={styles.accent}>BY</span>LINE<span className={styles.accent}>.</span>RU
+        </p>
+        <div className={styles.headerContacts} aria-label="Контакты">
+          <a className={styles.contactMuted} href={`mailto:${OWNER_EMAIL}`}>
+            {OWNER_EMAIL}
+          </a>
+          <a
+            className={styles.contactLink}
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Telegram
+          </a>
+          <a
+            className={styles.contactLink}
+            href={MAX_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            MAX
+          </a>
+        </div>
+        <p className={styles.headerDeadline}>ТОЛЬКО 11.11</p>
       </header>
 
       <section className={styles.hero} aria-labelledby="hero-title">
+        <div className={styles.look}>
+          <img
+            src="/ivory-suit.png"
+            alt="Женский костюм цвета слоновой кости"
+          />
+        </div>
         <div className={styles.heroCopy}>
+          <p className={styles.blackFridayWord}>BLACK FRIDAY</p>
           <h1 id="hero-title" className={styles.title}>
             <span className={styles.titlePartLineA}>LINE</span>
-            <span className={styles.titleMobileGap} aria-hidden />
-            <span className={`${styles.titleAccent} ${styles.titlePartBy}`}>BY</span>
+            <span className={styles.titleGap} aria-hidden />
+            <span className={`${styles.accent} ${styles.titlePartBy}`}>BY</span>
             <span className={styles.titlePartLineB}>LINE</span>
-            <span className={`${styles.titleAccent} ${styles.titlePartDot}`}>.</span>
+            <span className={`${styles.accent} ${styles.titlePartDot}`}>.</span>
             <span className={styles.titlePartRu}>RU</span>
           </h1>
           <p className={styles.description}>
             Премиальный домен для имени, которое запоминают.
           </p>
-          <p className={styles.blackFridayWord}>BLACK FRIDAY</p>
         </div>
       </section>
 
@@ -38,35 +66,37 @@ export function BlackFridayLanding() {
             666 тыс. ₽ <del>850 тыс. ₽</del>
           </p>
         </div>
-        <a
-          className={styles.cta}
-          href={LOT_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Купить домен
-        </a>
-        <div className={styles.contacts} aria-label="Контакты">
-            <a className={styles.contactLink} href={`mailto:${OWNER_EMAIL}`}>
+        <div className={styles.actions}>
+          <a
+            className={styles.cta}
+            href={LOT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Купить домен
+          </a>
+          <div className={styles.contacts} aria-label="Контакты">
+            <a className={styles.contactMuted} href={`mailto:${OWNER_EMAIL}`}>
               {OWNER_EMAIL}
             </a>
             <a
-                className={styles.contactLink}
-                href={TELEGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Telegram
-              </a>
-              <a
-                className={styles.contactLink}
-                href={MAX_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                MAX
-              </a>
+              className={styles.contactLink}
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Telegram
+            </a>
+            <a
+              className={styles.contactLink}
+              href={MAX_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MAX
+            </a>
           </div>
+        </div>
       </section>
     </main>
   );

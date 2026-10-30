@@ -1,313 +1,315 @@
 .page {
-  position: relative;
-  isolation: isolate;
   display: flex;
   min-height: 100svh;
   flex-direction: column;
-  overflow: hidden;
+  background: #f4f0e8;
+  color: #2c2824;
   font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: #fff;
-  background:
-    linear-gradient(90deg, rgba(3, 3, 3, 0.48) 0%, rgba(3, 3, 3, 0.14) 62%, rgba(3, 3, 3, 0.32) 100%),
-    url("/black-friday-background.png") center / cover no-repeat,
-    #030303;
 }
 
-.page::before,
-.page::after {
-  content: none;
+@media (min-width: 801px) {
+  .page {
+    height: 100svh;
+    max-height: 100svh;
+    overflow: hidden;
+  }
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 34px 64px;
+  padding: 20px 48px 20px 40px;
 }
 
 .wordmark,
 .headerDeadline,
-.offerLabel {
+.offerLabel,
+.blackFridayWord {
   margin: 0;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.wordmark,
+.headerDeadline {
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .wordmark {
-  font-size: 1rem;
+  letter-spacing: 2.6px;
+}
+
+.accent {
+  color: #ce9771;
+  /* font-weight: 700; */
+}
+
+.title .accent {
+  -webkit-text-stroke: 0.03em #ce9771;
+}
+
+.headerContacts {
+  display: flex;
+  align-items: center;
+  gap: 28px;
 }
 
 .headerDeadline {
-  color: #f50842;
-  font-size: 0.75rem;
+  letter-spacing: 2.2px;
 }
 
 .hero {
   display: flex;
   flex: 1;
-  justify-content: center;
-  align-items: center;
-  padding: 44px 64px 64px;
+  min-height: 0;
+  background: #f4f0e8;
+}
+
+.look {
+  position: relative;
+  flex: 0 0 52.78%;
+  max-width: 760px;
+  overflow: hidden;
+}
+
+.look img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .heroCopy {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  align-items: center;
-  width: min(100%, 568px);
-  margin-inline: auto;
-  text-align: center;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 22px;
+  min-width: 0;
+  padding: clamp(20px, 4vh, 48px) 52px clamp(20px, 4vh, 48px) 56px;
+}
+
+.blackFridayWord {
+  font-size: 12px;
+  letter-spacing: 3.6px;
 }
 
 .title {
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-columns: max-content max-content max-content;
+  grid-template-rows: auto auto;
   align-items: baseline;
-  justify-content: center;
-  max-width: 900px;
-  margin: 22px 0;
-  font-size: clamp(4.5rem, 6.3vw, 6rem);
-  font-weight: 900;
-  line-height: 0.85;
-  letter-spacing: -0.035em;
+  margin: 0;
+  font-size: clamp(42px, 9vh, 78px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0;
 }
 
-.titlePartLineA,
-.titlePartLineB,
-.titlePartBy,
-.titlePartRu {
-  display: inline-block;
+.titlePartLineA {
+  grid-column: 1;
+  grid-row: 1;
 }
 
-.titleMobileGap {
-  display: none;
+.titleGap {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.titlePartBy {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.titlePartLineB {
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .titlePartDot {
-  display: inline-block;
-  margin-right: 0.02em;
+  grid-column: 2;
+  grid-row: 2;
 }
 
-.titleAccent {
-  color: #f50842;
+.titlePartRu {
+  grid-column: 3;
+  grid-row: 2;
 }
 
 .description {
   margin: 0;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  line-height: 1.4;
-}
-
-.blackFridayWord {
-  margin: 26px 0 0;
-  color: #000;
-  font-size: clamp(3rem, 5.2vw, 4.75rem);
-  font-weight: 800;
-  line-height: 1.06;
-  letter-spacing: 0;
+  max-width: 380px;
+  color: #7a7268;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 26px;
 }
 
 .offer {
-  display: grid;
-  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  display: flex;
   align-items: center;
-  column-gap: 28px;
-  padding: 30px 64px 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(3, 3, 3, 0.72);
-  width: 100%;
-}
-
-.offerLabel {
-  color: #ff5a7b;
-  font-size: 0.7rem;
-}
-
-.price {
-  margin: 8px 0 0;
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
-  font-weight: 900;
-  letter-spacing: -0.06em;
-}
-
-.price del {
-  margin-left: 16px;
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 0.45em;
-  font-weight: 500;
-  letter-spacing: 0;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 48px 28px;
+  background: #ebe6dc;
 }
 
 .offerInfo {
   display: flex;
   flex-direction: column;
-  width: auto;
-  order: 1;
+  gap: 6px;
 }
 
-.contacts {
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 0;
-  justify-self: center;
-  order: 2;
+.offerLabel {
+  color: #7a7268;
+  font-size: 11px;
+  letter-spacing: 2.2px;
 }
 
-.contactLink,
-.contactText {
+.price {
   margin: 0;
-  color: #f95a7c;
-  font-size: 0.82rem;
-  line-height: 1.3;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0;
 }
 
-.contactLink {
-  text-decoration: none;
-  transition: color 160ms ease;
+.price del {
+  margin-left: 14px;
+  color: #8a8178;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
-.contactLink:hover {
-  color: #fff;
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
 }
 
 .cta {
   display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  flex-shrink: 0;
-  padding: 18px 28px;
-  border-radius: 999px;
-  color: #070707;
-  background: #fff;
-  font-size: 1rem;
-  font-weight: 800;
+  padding: 14px 26px;
+  background: #2c2824;
+  color: #f7f3ee;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
   text-decoration: none;
-  transition: transform 160ms ease, background-color 160ms ease;
-  order: 3;
 }
 
 .cta:hover {
-  transform: translateY(-2px);
-  background: #ffd9e2;
+  background: #1a1816;
 }
 
 .cta:focus-visible {
-  outline: 3px solid #ff5a7b;
-  outline-offset: 4px;
+  outline: 2px solid #2c2824;
+  outline-offset: 3px;
 }
 
-@media (max-width: 700px) {
-  .page {
-    min-height: 100svh;
-    background:
-      linear-gradient(180deg, rgba(3, 3, 3, 0.45) 0%, rgba(3, 3, 3, 0.1) 66%, rgba(3, 3, 3, 0.3) 100%),
-      url("/black-friday-background.png") 57% center / auto 100% no-repeat,
-      #030303;
+.contacts {
+  display: none;
+}
+
+.contactMuted,
+.contactLink {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.contactMuted {
+  color: #7a7268;
+}
+
+.contactLink {
+  color: #2c2824;
+}
+
+.contactMuted:hover,
+.contactLink:hover {
+  color: #1a1816;
+}
+
+@media (max-width: 1100px) {
+  .title {
+    font-size: clamp(46px, 6vw, 68px);
   }
 
+  .heroCopy {
+    padding: 40px 36px;
+  }
+}
+
+@media (max-width: 800px) {
   .header {
     padding: 16px 20px;
   }
 
-  .wordmark {
-    font-size: 0.86rem;
-  }
-
-  .headerDeadline {
-    font-size: 0.68rem;
+  .headerContacts {
+    display: none;
   }
 
   .hero {
+    flex-direction: column;
     min-height: 0;
-    justify-content: center;
-    align-items: center;
+  }
+
+  .look {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    height: 72vw;
+    min-height: 360px;
+  }
+
+  .heroCopy {
     gap: 14px;
-    padding: 16px 20px 12px;
+    padding: 28px 20px 32px;
   }
 
   .title {
-    display: inline-grid;
-    grid-template-columns: max-content max-content max-content;
-    grid-template-rows: auto auto;
-    align-items: baseline;
-    max-width: none;
-    margin: 10px 0;
-    font-size: clamp(2.8rem, 14.8vw, 3.8rem);
-    line-height: 0.83;
-  }
-
-  .titlePartLineA {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .titleMobileGap {
-    display: block;
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .titlePartBy {
-    grid-column: 3;
-    grid-row: 1;
-  }
-
-  .titlePartLineB {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .titlePartDot {
-    grid-column: 2;
-    grid-row: 2;
-    margin-right: 0;
-  }
-
-  .titlePartRu {
-    grid-column: 3;
-    grid-row: 2;
+    font-size: clamp(40px, 12vw, 56px);
   }
 
   .description {
-    font-size: 0.95rem;
-    line-height: 1.25;
-  }
-
-  .blackFridayWord {
-    margin-top: 10px;
-    font-size: clamp(1.9rem, 10vw, 2.5rem);
-    line-height: 1;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .offer {
-    display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
-    padding: 14px 20px 16px;
+    padding: 20px 20px 24px;
   }
 
-  .contacts {
-    margin-top: 8px;
-    order: 3;
-  }
-
-  .contactsRow {
-    gap: 16px;
-  }
-
-  .price {
-    font-size: 1.95rem;
+  .actions {
+    align-items: stretch;
   }
 
   .cta {
     justify-content: center;
-    padding: 14px 18px;
-    font-size: 0.9rem;
-    order: 2;
+  }
+
+  .contacts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+  .price {
+    font-size: 30px;
   }
 }
