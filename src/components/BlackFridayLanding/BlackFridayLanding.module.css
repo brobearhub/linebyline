@@ -361,3 +361,37 @@
     font-size: 30px;
   }
 }
+
+@media (min-width: 801px) {
+  .stage {
+    position: relative;
+  }
+
+  .hero {
+    position: static;
+  }
+
+  .hero::before {
+    content: "";
+    flex: 0 0 52.78%;
+    max-width: 760px;
+  }
+
+  .look {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    flex: none;
+    width: 52.78%;
+    max-width: 760px;
+    height: auto;
+  }
+
+  .offer {
+    position: relative;
+    z-index: 1;
+    background: rgb(235 230 220 / 62%);
+  }
+}
