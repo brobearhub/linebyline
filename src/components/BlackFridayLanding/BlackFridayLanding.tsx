@@ -36,6 +36,7 @@ export function BlackFridayLanding() {
         <p className={styles.headerDeadline}>ТОЛЬКО 11.11</p>
       </header>
 
+      <div className={styles.stage}>
       <section className={styles.hero} aria-labelledby="hero-title">
         <div className={styles.look}>
           <img
@@ -44,15 +45,17 @@ export function BlackFridayLanding() {
           />
         </div>
         <div className={styles.heroCopy}>
-          <p className={styles.blackFridayWord}>BLACK FRIDAY</p>
-          <h1 id="hero-title" className={styles.title}>
-            <span className={styles.titlePartLineA}>LINE</span>
-            <span className={styles.titleGap} aria-hidden />
-            <span className={`${styles.accent} ${styles.titlePartBy}`}>BY</span>
-            <span className={styles.titlePartLineB}>LINE</span>
-            <span className={`${styles.accent} ${styles.titlePartDot}`}>.</span>
-            <span className={styles.titlePartRu}>RU</span>
-          </h1>
+          <div className={styles.heroHeading}>
+            <p className={styles.blackFridayWord}>BLACK FRIDAY</p>
+            <h1 id="hero-title" className={styles.title}>
+              <span className={styles.titlePartLineA}>LINE</span>
+              <span className={styles.titleGap} aria-hidden />
+              <span className={`${styles.accent} ${styles.titlePartBy}`}>BY</span>
+              <span className={styles.titlePartLineB}>LINE</span>
+              <span className={`${styles.accent} ${styles.titlePartDot}`}>.</span>
+              <span className={styles.titlePartRu}>RU</span>
+            </h1>
+          </div>
           <p className={styles.description}>
             Премиальный домен для имени, которое запоминают.
           </p>
@@ -98,6 +101,7 @@ export function BlackFridayLanding() {
           </div>
         </div>
       </section>
+      </div>
     </main>
   );
 }

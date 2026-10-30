@@ -14,6 +14,10 @@
     max-height: 100svh;
     overflow: hidden;
   }
+
+  .stage {
+    min-height: 0;
+  }
 }
 
 .header {
@@ -61,6 +65,12 @@
   letter-spacing: 2.2px;
 }
 
+.stage {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 .hero {
   display: flex;
   flex: 1;
@@ -93,6 +103,13 @@
   gap: 22px;
   min-width: 0;
   padding: clamp(20px, 4vh, 48px) 52px clamp(20px, 4vh, 48px) 56px;
+}
+
+.heroHeading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
 }
 
 .blackFridayWord {
@@ -260,22 +277,50 @@
     display: none;
   }
 
+  .stage {
+    position: relative;
+  }
+
   .hero {
+    position: static;
     flex-direction: column;
-    min-height: 0;
+    justify-content: flex-end;
+    min-height: max(72vw, 360px);
+    background: transparent;
+  }
+
+  .heroHeading {
+    position: static;
+    gap: 10px;
+    transform: none;
   }
 
   .look {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
     flex: none;
     width: 100%;
     max-width: none;
-    height: 72vw;
-    min-height: 360px;
+    height: auto;
+    min-height: 0;
   }
 
   .heroCopy {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    z-index: 1;
+    flex: none;
+    align-self: flex-start;
+    width: max-content;
+    max-width: calc(100% - 40px);
+    height: auto;
+    margin: 0 20px 16px;
+    justify-content: flex-start;
     gap: 14px;
-    padding: 28px 20px 32px;
+    padding: 16px 18px;
+    background: rgb(244 240 232 / 62%);
   }
 
   .title {
@@ -288,9 +333,12 @@
   }
 
   .offer {
+    position: relative;
+    z-index: 1;
     flex-direction: column;
     align-items: stretch;
     padding: 20px 20px 24px;
+    background: rgb(235 230 220 / 62%);
   }
 
   .actions {
