@@ -28,9 +28,7 @@
 
 .wordmark,
 .headerDeadline,
-.eyebrow,
-.offerLabel,
-.deadlineStamp span {
+.offerLabel {
   margin: 0;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -46,33 +44,48 @@
 }
 
 .hero {
-  display: grid;
+  display: flex;
   flex: 1;
-  grid-template-columns: minmax(0, 1fr) auto;
+  justify-content: center;
   align-items: center;
-  gap: 40px;
   padding: 44px 64px 64px;
 }
 
 .heroCopy {
-  max-width: 940px;
-}
-
-.eyebrow {
-  color: #ff5a7b;
-  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 568px);
+  margin-inline: auto;
+  text-align: center;
 }
 
 .title {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 0;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
   max-width: 900px;
   margin: 22px 0;
   font-size: clamp(4.5rem, 6.3vw, 6rem);
   font-weight: 900;
-  line-height: 0.9;
+  line-height: 0.85;
   letter-spacing: -0.035em;
+}
+
+.titlePartLineA,
+.titlePartLineB,
+.titlePartBy,
+.titlePartRu {
+  display: inline-block;
+}
+
+.titleMobileGap {
+  display: none;
+}
+
+.titlePartDot {
+  display: inline-block;
+  margin-right: 0.02em;
 }
 
 .titleAccent {
@@ -95,37 +108,15 @@
   letter-spacing: 0;
 }
 
-.deadlineStamp {
-  display: flex;
-  width: 260px;
-  height: 260px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #ffb5c5;
-  border-radius: 50%;
-  background: #e90036;
-  box-shadow: 0 0 70px rgba(233, 0, 54, 0.45);
-}
-
-.deadlineStamp span {
-  font-size: 1rem;
-}
-
-.deadlineStamp strong {
-  font-size: 4.4rem;
-  line-height: 1;
-  letter-spacing: -0.08em;
-}
-
 .offer {
-  display: flex;
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
   align-items: center;
-  justify-content: space-between;
-  gap: 28px;
+  column-gap: 28px;
   padding: 30px 64px 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(3, 3, 3, 0.72);
+  width: 100%;
 }
 
 .offerLabel {
@@ -148,6 +139,41 @@
   letter-spacing: 0;
 }
 
+.offerInfo {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  order: 1;
+}
+
+.contacts {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+  justify-self: center;
+  order: 2;
+}
+
+.contactLink,
+.contactText {
+  margin: 0;
+  color: #f95a7c;
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.contactLink {
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.contactLink:hover {
+  color: #fff;
+}
+
 .cta {
   display: inline-flex;
   align-items: center;
@@ -161,6 +187,7 @@
   font-weight: 800;
   text-decoration: none;
   transition: transform 160ms ease, background-color 160ms ease;
+  order: 3;
 }
 
 .cta:hover {
@@ -183,7 +210,7 @@
   }
 
   .header {
-    padding: 22px 20px;
+    padding: 16px 20px;
   }
 
   .wordmark {
@@ -195,63 +222,92 @@
   }
 
   .hero {
-    min-height: 510px;
-    grid-template-columns: 1fr;
-    align-content: space-between;
-    gap: 26px;
-    padding: 30px 20px 26px;
-  }
-
-  .eyebrow {
-    font-size: 0.65rem;
+    min-height: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px 12px;
   }
 
   .title {
-    max-width: 360px;
-    margin: 16px 0;
-    font-size: clamp(3.2rem, 17vw, 4.4rem);
+    display: inline-grid;
+    grid-template-columns: max-content max-content max-content;
+    grid-template-rows: auto auto;
+    align-items: baseline;
+    max-width: none;
+    margin: 10px 0;
+    font-size: clamp(2.8rem, 14.8vw, 3.8rem);
     line-height: 0.83;
-    overflow-wrap: anywhere;
+  }
+
+  .titlePartLineA {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .titleMobileGap {
+    display: block;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .titlePartBy {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .titlePartLineB {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .titlePartDot {
+    grid-column: 2;
+    grid-row: 2;
+    margin-right: 0;
+  }
+
+  .titlePartRu {
+    grid-column: 3;
+    grid-row: 2;
   }
 
   .description {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.25;
   }
 
   .blackFridayWord {
-    margin-top: 20px;
-    font-size: clamp(2.3rem, 14.5vw, 3.2rem);
-    line-height: 1.02;
-  }
-
-  .deadlineStamp {
-    width: 116px;
-    height: 116px;
-    justify-self: end;
-  }
-
-  .deadlineStamp span {
-    font-size: 0.72rem;
-  }
-
-  .deadlineStamp strong {
-    font-size: 2rem;
+    margin-top: 10px;
+    font-size: clamp(1.9rem, 10vw, 2.5rem);
+    line-height: 1;
   }
 
   .offer {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 22px;
-    padding: 28px 20px;
+    gap: 12px;
+    padding: 14px 20px 16px;
+  }
+
+  .contacts {
+    margin-top: 8px;
+    order: 3;
+  }
+
+  .contactsRow {
+    gap: 16px;
   }
 
   .price {
-    font-size: 2.1rem;
+    font-size: 1.95rem;
   }
 
   .cta {
     justify-content: center;
-    padding: 17px 20px;
-    font-size: 0.94rem;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    order: 2;
   }
 }
